@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Μαύρο background */
+            color: #fff; /* Άσπρο χρώμα για το κείμενο */
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        section {
+            margin-bottom: 2em;
+        }
+
+        .progress-bar {
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .progress {
+            background-color: #4CAF50;
+            height: 20px;
+        }
+
+        .timeline {
+            border-left: 3px solid #4CAF50;
+            margin-left: 20px;
+        }
+
+        .timeline-item {
+            padding: 10px 20px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            background-color: #4CAF50;
+            border-radius: 50%;
+            position: absolute;
+            left: -9px;
+            top: 10px;
+            width: 15px;
+            height: 15px;
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer .social-media {
+            margin-bottom: 1em;
+        }
+
+        footer .social-media a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer .social-media a:hover {
+            text-decoration: underline;
+        }
+
+        a {
+            color: #4CAF50; /* Πράσινοι σύνδεσμοι για καλύτερη ανάγνωση */
+        }
+
+        h2, h3, h4 {
+            color: #4CAF50; /* Πράσινοι τίτλοι */
+        }
+
+        pre {
+            background-color: #333; /* Σκούρο γκρι background για το pre */
+            padding: 1em;
+            border-radius: 5px;
+        }
+
+        .language-select {
+            text-align: right;
+            margin: 10px 20px;
+        }
+
+        .language-select select {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background: #000;
+            color: #fff;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-select">
+        <select id="languageSwitcher" onchange="translatePage()">
+            <option value="en" data-flag="🇬🇧">English</option>
+            <option value="gr" data-flag="🇬🇷">Ελληνικά</option>
+        </select>
+    </div>
+    <img src="images/web_development.jpeg" width="900" height="500" alt="This is a developer image">
+    <header>
+        <h1>Interactive Resume (Mazitzis Konstantinos)</h1>
+        <br>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about-me">About me</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#hobbies">Hobbies</a>
+            <a href="#languages">Languages</a>
+            <a href="#voluntary-and-social-action">Voluntary and Social Action</a>
+            <a href="#military-service">Military Service</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <main>
+        <section id="home">
+            <h2 data-en="Welcome to My Interactive Resume" data-gr="Καλώς ήρθατε στο διαδραστικό βιογραφικό μου">Welcome to My Interactive Resume</h2>
+            <p data-en="My name is Mazitzis Konstantinos and I am an undergraduate student at the University of Harokopeio." data-gr="Το όνομά μου είναι Μαζίτζης Κωνσταντίνος και είμαι προπτυχιακός φοιτητής στο  Χαροκόπειο Πανεπιστήμιο στο τμήμα Πληροφορικής και Τηλεματικής.">My name is Mazitzis Konstantinos and I am an undergraduate student at the University of Harokopeio.</p>
+        </section>
+        <br>
+        <section id="about-me">
+            <h2 data-en="About me" data-gr="Σχετικά με μένα">About me</h2>
+            <pre data-en="I am a student in the department of information and Telematics at Harokopio University.
+                I would love to develop and add to my skills in software development. 
+                I also have an interest in the topic of databases. Furthermore, I want to adapt to a work
+                environment, meeting all the deadlines and quotas as part of a team." data-gr="Είμαι φοιτητής στο τμήμα Πληροφορικής και Τηλεματικής στο Χαροκόπειο Πανεπιστήμιο.
+                Θα ήθελα να αναπτύξω και να προσθέσω στις δεξιότητές μου στην ανάπτυξη λογισμικού.
+                Επίσης, έχω ενδιαφέρον για το θέμα των βάσεων δεδομένων. Επιπλέον, θέλω να προσαρμοστώ σε ένα εργασιακό περιβάλλον, 
+                εκπληρώνοντας όλες τις προθεσμίες και τις ποσοστώσεις ως μέρος
+                μιας ομάδας.">I am a student in the department of information and Telematics at Harokopio University.
+                I would love to develop and add to my skills in software development. 
+                I also have an interest in the topic of databases. Furthermore, I want to adapt to a work
+                environment, meeting all the deadlines and quotas as part of a team.</pre>
+        </section>
+        <section id="experience">
+            <h4 data-en="Experience" data-gr="Εμπειρία">Experience</h4>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 data-en="Waiter" data-gr="Σερβιτόρος">Waiter</h3>
+                    <span data-en="Mantri Mountain Resto - July 2022 until present" data-gr="Mantri Mountain Resto - Ιούλιος 2022 έως σήμερα">Mantri Mountain Resto - July 2022 until present</span>
+                    <pre data-en="Unfortunately, my experience as a student is only the part of Waiter at the moment.
+                        I must do this job because I want to be independent from my parents and 
+                        to be able to cover my personal expenses." data-gr="Δυστυχώς, η εμπειρία μου ως φοιτητής είναι μόνο η θέση του Σερβιτόρου αυτή τη στιγμή.
+                        Πρέπει να κάνω αυτή τη δουλειά γιατί θέλω να είμαι ανεξάρτητος από τους γονείς μου και
+                        να μπορώ να καλύψω τα προσωπικά μου έξοδα.">Unfortunately, my experience as a student is only the part of Waiter at the moment.
+                        I must do this job because I want to be independent from my parents and 
+                        to be able to cover my personal expenses.</pre>
+                </div>
+            </div>
+        </section>
+        <br>
+        <section id="skills">
+            <h2 data-en="Skills" data-gr="Δεξιότητες">Skills</h2>
+            <br>
+            <div class="skill">
+                <h3 data-en="HTML" data-gr="HTML">HTML</h3>
+            </div>
+            <div class="skill">
+                <h3 data-en="CSS" data-gr="CSS">CSS</h3>
+            </div>
+            <div class="skill">
+                <h3 data-en="Java" data-gr="Java">Java</h3>
+            </div>
+            <div class="skill">
+                <h3 data-en="Python" data-gr="Python">Python</h3>
+            </div>
+            <div class="skill">
+                <h3 data-en="JavaScript" data-gr="JavaScript">JavaScript</h3>
+            </div>
+            <pre data-en="My skills include what I have learned at my university.
+                For example, I have learned how to use Java language.
+                I also have skills in C language, HTML, JavaScript, and CSS for back-end and front-end development,
+                and finally, I have learned and worked a little on SQL and Python." data-gr="Οι δεξιότητές μου περιλαμβάνουν όσα έχω μάθει στο πανεπιστήμιό μου.
+                Για παράδειγμα, έχω μάθει πώς να χρησιμοποιώ τη γλώσσα Java.
+                Επίσης, έχω δεξιότητες στη γλώσσα C, HTML, JavaScript και CSS για την ανάπτυξη back-end και front-end,
+                και τέλος, έχω μάθει και εργαστεί λίγο με SQL και Python.">My skills include what I have learned at my university.
+                For example, I have learned how to use Java language.
+                I also have skills in C language, HTML, JavaScript, and CSS for back-end and front-end development,
+                and finally, I have learned and worked a little on SQL and Python.</pre>
+            <br>
+        </section>
+        <br>
+        <section id="education">
+            <h2 data-en="Education" data-gr="Εκπαίδευση">Education</h2>
+            <br>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 data-en="Degree" data-gr="Πτυχίο">Degree</h3>
+                    <span data-en="Institution Name - Dates" data-gr="Όνομα Ιδρύματος - Ημερομηνίες">Institution Name - Dates</span>
+                    <p data-en="Description of the education and achievements." data-gr="Περιγραφή της εκπαίδευσης και των επιτευγμάτων.">Description of the education and achievements.</p>
+                </div>
+                <!-- Add more education items as needed -->
+            </div>
+            <pre data-en="My education is at the University of Harokopeio. I am in my third year of studies 
+                and I will need about 1 to 1.5 years to complete my studies
+                and get my degree!" data-gr="Η εκπαίδευσή μου είναι στο Πανεπιστήμιο Χαροκοπείου. Είμαι στο τρίτο έτος των σπουδών μου
+                και θα χρειαστώ περίπου 1 έως 1,5 χρόνια για να ολοκληρώσω τις σπουδές μου
+                και να πάρω το πτυχίο μου!">My education is at the University of Harokopeio. I am in my third year of studies 
+                and I will need about 1 to 1.5 years to complete my studies
+                and get my degree!</pre>
+            <br>
+        </section>
+        <br>
+        <section id="projects">
+            <h2 data-en="Projects" data-gr="Έργα">Projects</h2>
+            <br>
+            <pre data-en="I have done some projects which are in my GitHub as you can see:
+                <a href='https://github.com/kostismazitzis'>GitHub Profile</a>" data-gr="Έχω κάνει κάποια έργα που βρίσκονται στο GitHub μου όπως μπορείτε να δείτε:
+                <a href='https://github.com/kostismazitzis'>Προφίλ στο GitHub</a>">I have done some projects which are in my GitHub as you can see:
+                <a href="https://github.com/kostismazitzis">GitHub Profile</a></pre>
+            <br>
+            <div class="project">
+                <h3 data-en="EntertainmentApp" data-gr="EntertainmentApp">EntertainmentApp</h3>
+                <pre data-en="Java-based application implementing CRUD methods and inheritance for the information
+                    management and rating of movies and series." data-gr="Εφαρμογή βασισμένη σε Java που υλοποιεί μεθόδους CRUD και κληρονομικότητα για τη διαχείριση
+                    και την αξιολόγηση ταινιών και σειρών.">Java-based application implementing CRUD methods and inheritance for the information
+                    management and rating of movies and series.</pre>
+                <img src="images/sm.jpeg"  width="300" height="300" alt="Project Image">
+            </div>
+            <div class="project">
+                <h3 data-en="Banking System" data-gr="Σύστημα Τραπεζικής">Banking System</h3>
+                <pre data-en="C-based banking system. Creating a bank account, money deposit, money withdrawal, 
+                    balance check, view account details, and money transfer with capital reduction." data-gr="Σύστημα τραπεζικής βασισμένο στη γλώσσα C. Δημιουργία τραπεζικού λογαριασμού, κατάθεση χρημάτων, ανάληψη χρημάτων,
+                    έλεγχος υπολοίπου, προβολή στοιχείων λογαριασμού και μεταφορά χρημάτων με μείωση κεφαλαίου.">C-based banking system. Creating a bank account, money deposit, money withdrawal, 
+                    balance check, view account details, and money transfer with capital reduction.</pre>
+                <img src="images/Bank.jpeg"  width="300" height="300" alt="Project Image">
+            </div>
+        </section>
+        <br>
+        <section id="hobbies">
+            <h2 data-en="Hobbies" data-gr="Χόμπι">Hobbies</h2>
+            <br>
+            <pre data-en="My hobbies are:
+                1. Exercise
+                2. Football" data-gr="Τα χόμπι μου είναι:
+                1. Άσκηση
+                2. Ποδόσφαιρο">My hobbies are:
+                1. Exercise
+                2. Football</pre>
+            <br>
+        </section>
+        <br>
+        <section id="languages">
+            <h2 data-en="Languages" data-gr="Γλώσσες">Languages</h2>
+            <br>
+            <pre data-en="My languages are:
+                1. Greek is my mother tongue
+                2. English is my second language, which I have a good knowledge (Lower NOCN), 
+                but now I am taking private lessons so that I can develop my knowledge and get the proficiency diploma." data-gr="Οι γλώσσες μου είναι:
+                1. Τα ελληνικά είναι η μητρική μου γλώσσα
+                2. Τα αγγλικά είναι η δεύτερη γλώσσα μου, την οποία γνωρίζω καλά (Lower NOCN), 
+                αλλά τώρα κάνω ιδιωτικά μαθήματα για να αναπτύξω τις γνώσεις μου και να πάρω το δίπλωμα επάρκειας.">My languages are:
+                1. Greek is my mother tongue
+                2. English is my second language, which I have a good knowledge (Lower NOCN), 
+                but now I am taking private lessons so that I can develop my knowledge and get the proficiency diploma.</pre>
+            <br>
+        </section>
+        <br>
+        <section id="voluntary-and-social-action">
+            <h2 data-en="Voluntary and Social Action" data-gr="Εθελοντισμός και Κοινωνική Δράση">Voluntary and Social Action</h2>
+            <br>
+            <pre data-en="I have also been a volunteer at a conference, organizing a list of attendees, sorting them to a class 
+                and also providing them with the necessary equipment (microphones, computer)." data-gr="Έχω επίσης υπάρξει εθελοντής σε ένα συνέδριο, οργανώνοντας μια λίστα συμμετεχόντων, κατατάσσοντάς τους σε μια τάξη
+                και επίσης παρέχοντας τους τον απαραίτητο εξοπλισμό (μικρόφωνα, υπολογιστής).">I have also been a volunteer at a conference, organizing a list of attendees, sorting them to a class 
+                and also providing them with the necessary equipment (microphones, computer).</pre>
+            <br>
+        </section>
+        <br>
+        <section id="military-service">
+            <h2 data-en="Military Service" data-gr="Στρατιωτική Θητεία">Military Service</h2>
+            <br>
+            <pre data-en="<img src='images/Ranger_SF.jpg' alt='This is an image of Ranger SF'>
+                By my own decision after the implementation of my first year of school,
+                I decided to interrupt and implement my mandatory service in the army.
+                It was clearly a personal choice and something that not many kids do these days, but instead choose to finish their studies and then join the army, 
+                which I find counterintuitive. So from 20/9/2021 to 18/10/2021 I was in the infantry department and from 18/10/2021 to 20/06/2022 
+                I served my term in the Rangers department of special forces." data-gr="<img src='images/Ranger_SF.jpg' alt='Αυτή είναι μια εικόνα του Ranger SF'>
+                Με δική μου απόφαση μετά την ολοκλήρωση του πρώτου έτους σχολείου,
+                Αποφάσισα να διακόψω και να εκτελέσω την υποχρεωτική μου θητεία στον στρατό.
+                Ήταν σαφώς προσωπική επιλογή και κάτι που δεν κάνουν πολλά παιδιά αυτές τις μέρες, αλλά αντίθετα επιλέγουν να ολοκληρώσουν τις σπουδές τους και μετά να ενταχθούν στον στρατό,
+                που το βρίσκω αντιφατικό. Έτσι από τις 20/9/2021 έως τις 18/10/2021 ήμουν στο τμήμα πεζικού και από τις 18/10/2021 έως τις 20/06/2022
+                Υπηρέτησα τη θητεία μου στο τμήμα Ειδικών Δυνάμεων των Rangers.">By my own decision after the implementation of my first year of school,
+                I decided to interrupt and implement my mandatory service in the army.
+                It was clearly a personal choice and something that not many kids do these days, but instead choose to finish their studies and then join the army, 
+                which I find counterintuitive. So from 20/9/2021 to 18/10/2021 I was in the infantry department and from 18/10/2021 to 20/06/2022 
+                I served my term in the Rangers department of special forces.</pre>
+            <br>
+        </section>
+        <br>
+        <section id="contact">
+            <h2 data-en="Contact me" data-gr="Επικοινωνήστε μαζί μου">Contact me</h2>
+            <br>
+            <p data-en="Email: Konstantinosmazitzis@gmail.com" data-gr="Ηλεκτρονικό ταχυδρομείο: Konstantinosmazitzis@gmail.com">Email: Konstantinosmazitzis@gmail.com</p>
+            <p data-en="Phone: +30 6976936258" data-gr="Τηλέφωνο: +30 6976936258">Phone: +30 6976936258</p>
+
+            <form>
+                <label for="name" data-en="Name:" data-gr="Όνομα:">Name:</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="email" data-en="Email:" data-gr="Ηλεκτρονικό ταχυδρομείο:">Email:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <label for="message" data-en="Message:" data-gr="Μήνυμα:">Message:</label><br>
+                <textarea id="message" name="message"></textarea><br>
+                <button type="submit" data-en="Send Message" data-gr="Αποστολή μηνύματος">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/konstantinos-mazitzis-19486b29b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">LinkedIn</a>
+            <a href="https://github.com/kostismazitzis" target="_blank">GitHub</a>
+        </div>
+        <p>&copy; 2024 Konstantinos Mazitzis</p>
+    </footer>
+    <script src="scripts.js"></script>
+    <script>
+        function translatePage() {
+            var language = document.getElementById('languageSwitcher').value;
+            var elements = document.querySelectorAll('[data-en], [data-gr]');
+            
+            elements.forEach(function(element) {
+                element.textContent = element.getAttribute('data-' + language);
+            });
+        }
+
+        // Αρχικοποίηση της γλώσσας σε Αγγλικά
+        document.addEventListener('DOMContentLoaded', function() {
+            translatePage();
+        });
+    </script>
+</body>
+</html>
