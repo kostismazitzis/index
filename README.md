@@ -1,2 +1,2 @@
 
-Above you find my interactive CV which is exclusively in html language and is still under development.
+Above you find my interactive CV which is exclusively in html  and CSS language and is still under development and for some reason i can't change the logo on my interactive_resume and i don't known why... 
