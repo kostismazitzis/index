@@ -5,130 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Resume</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000; /* Μαύρο background */
-            color: #fff; /* Άσπρο χρώμα για το κείμενο */
-        }
-
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1em;
-            text-align: center;
-        }
-
-        nav a {
-            margin: 0 15px;
-            color: white;
-            text-decoration: none;
-        }
-
-        main {
-            padding: 2em;
-        }
-
-        section {
-            margin-bottom: 2em;
-        }
-
-        .progress-bar {
-            background-color: #f3f3f3;
-            border-radius: 5px;
-            overflow: hidden;
-            margin-top: 5px;
-        }
-
-        .progress {
-            background-color: #4CAF50;
-            height: 20px;
-        }
-
-        .timeline {
-            border-left: 3px solid #4CAF50;
-            margin-left: 20px;
-        }
-
-        .timeline-item {
-            padding: 10px 20px;
-            position: relative;
-            margin-bottom: 10px;
-        }
-
-        .timeline-item::before {
-            content: '';
-            background-color: #4CAF50;
-            border-radius: 50%;
-            position: absolute;
-            left: -9px;
-            top: 10px;
-            width: 15px;
-            height: 15px;
-        }
-
-        .project img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-        footer .social-media {
-            margin-bottom: 1em;
-        }
-
-        footer .social-media a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        footer .social-media a:hover {
-            text-decoration: underline;
-        }
-
-        a {
-            color: #4CAF50; /* Πράσινοι σύνδεσμοι για καλύτερη ανάγνωση */
-        }
-
-        h2, h3, h4 {
-            color: #4CAF50; /* Πράσινοι τίτλοι */
-        }
-
-        pre {
-            background-color: #333; /* Σκούρο γκρι background για το pre */
-            padding: 1em;
-            border-radius: 5px;
-        }
-
-        .language-select {
-            text-align: right;
-            margin: 10px 20px;
-        }
-
-        .language-select select {
-            padding: 5px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            background: #000;
-            color: #fff;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <link rel="icon" href="images/logoForCv.png" type="images/png+xml">
 </head>
 <body>
     <div class="language-select">
@@ -137,13 +16,13 @@
             <option value="gr" data-flag="🇬🇷">Ελληνικά</option>
         </select>
     </div>
-    <img src="images/web_development.jpeg" width="900" height="500" alt="This is a developer image">
+        <img src="images/web_development.jpeg"  alt="Logo" class="logo">
     <header>
         <h1>Interactive Resume (Mazitzis Konstantinos)</h1>
         <br>
         <nav>
             <a href="#home">Home</a>
-            <a href="#about-me">About me</a>
+            <a href="#about_me">About me</a>
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#education">Education</a>
@@ -163,7 +42,7 @@
             <p data-en="My name is Mazitzis Konstantinos and I am an undergraduate student at the University of Harokopeio." data-gr="Το όνομά μου είναι Μαζίτζης Κωνσταντίνος και είμαι προπτυχιακός φοιτητής στο  Χαροκόπειο Πανεπιστήμιο στο τμήμα Πληροφορικής και Τηλεματικής.">My name is Mazitzis Konstantinos and I am an undergraduate student at the University of Harokopeio.</p>
         </section>
         <br>
-        <section id="about-me">
+        <section id="about_me">
             <h2 data-en="About me" data-gr="Σχετικά με μένα">About me</h2>
             <pre data-en="I am a student in the department of information and Telematics at Harokopio University.
                 I would love to develop and add to my skills in software development. 
@@ -329,6 +208,8 @@
                 It was clearly a personal choice and something that not many kids do these days, but instead choose to finish their studies and then join the army, 
                 which I find counterintuitive. So from 20/9/2021 to 18/10/2021 I was in the infantry department and from 18/10/2021 to 20/06/2022 
                 I served my term in the Rangers department of special forces.</pre>
+                <img src="images/Ranger_SF.jpg"  width="300" height="300" alt="Project Image">
+
             <br>
         </section>
         <br>
@@ -337,17 +218,18 @@
             <br>
             <p data-en="Email: Konstantinosmazitzis@gmail.com" data-gr="Ηλεκτρονικό ταχυδρομείο: Konstantinosmazitzis@gmail.com">Email: Konstantinosmazitzis@gmail.com</p>
             <p data-en="Phone: +30 6976936258" data-gr="Τηλέφωνο: +30 6976936258">Phone: +30 6976936258</p>
-
-            <form>
-                <label for="name" data-en="Name:" data-gr="Όνομα:">Name:</label><br>
-                <input type="text" id="name" name="name"><br>
-                <label for="email" data-en="Email:" data-gr="Ηλεκτρονικό ταχυδρομείο:">Email:</label><br>
-                <input type="email" id="email" name="email"><br>
-                <label for="message" data-en="Message:" data-gr="Μήνυμα:">Message:</label><br>
-                <textarea id="message" name="message"></textarea><br>
+        
+            <form id="contact-form">
+                <label for="name" data-en="Name:" data-gr="Όνομα:">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email" data-en="Email:" data-gr="Ηλεκτρονικό ταχυδρομείο:">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message" data-en="Message:" data-gr="Μήνυμα:">Message:</label>
+                <textarea id="message" name="message" required></textarea>
                 <button type="submit" data-en="Send Message" data-gr="Αποστολή μηνύματος">Send Message</button>
             </form>
         </section>
+        
     </main>
     <footer>
         <div class="social-media">
@@ -356,7 +238,32 @@
         </div>
         <p>&copy; 2024 Konstantinos Mazitzis</p>
     </footer>
-    <script src="scripts.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('YOUR_USER_ID'); // Αντικαταστήστε με το δικό σας user ID από το EmailJS
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Αποτροπή της προεπιλεγμένης ενέργειας της φόρμας
+
+            // Συγκέντρωση δεδομένων φόρμας
+            var templateParams = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+
+            // Αποστολή email
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('Your message has been sent successfully!');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Failed to send your message. Please try again.');
+                });
+        });
+    </script>
     <script>
         function translatePage() {
             var language = document.getElementById('languageSwitcher').value;
@@ -372,5 +279,6 @@
             translatePage();
         });
     </script>
+    
 </body>
 </html>
